@@ -266,6 +266,8 @@ class _RealWebSocket : public easywsclient::WebSocket
         // TODO: consider acquiring a lock on rxbuf...
         while (true) {
             wsheader_type ws;
+            ws.N = 0;
+
             if (rxbuf.size() < 2) { return; /* Need at least 2 */ }
             const uint8_t * data = (uint8_t *) &rxbuf[0]; // peek, but don't consume
             ws.fin = (data[0] & 0x80) == 0x80;
