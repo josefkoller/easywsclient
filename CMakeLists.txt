@@ -6,3 +6,6 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 set(DEFAULT_FLAGS "-pthread -std=c++14 -Wall -Werror -Wno-unused-result -Wno-unknown-pragmas")
 
 add_library(easywsclient_lib easywsclient.cpp easywsclient.hpp)
+
+add_executable(example-client example-client.cpp)
+target_link_libraries(example-client easywsclient_lib)
